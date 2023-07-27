@@ -5,6 +5,9 @@ join veiculosClientes vc on c.idCliente = vc.idveiculosClientesCliente
 join veiculos v on v.idVeiculo = vc.idveiculosClientesVeiculo
 group by c.idCliente;
 
+-- Quais os clientes quem possuem algum modelo da marca Yamaha por ordem alfabética?
+select c.pNome as Nome, v.modelo as Modelo from clientes c, veiculos v where v.marca = 'Yamaha' order by c.pNome;
+
 -- Quais os clientes que possuem 3 ou mais veículos?
 select concat(c.pNome, ' ', c.nomeMeio, '. ', c.sobrenome) as Nome_Completo, count(*) as Qtd_Veiculos
 from clientes c
